@@ -1,0 +1,14 @@
+.project
+.classpath
+.settings
+.checkstyle
+*.eclipse-pmd
+*.class
+*.*~
+hs_err_pid*
+dependency-reduced-pom.xml
+
+app/target
+
+.idea/
+SemDat/build/build.js
