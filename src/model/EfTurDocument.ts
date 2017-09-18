@@ -1,7 +1,6 @@
 import {ID_Manager} from "../general/ID_Manager";
 import {DataNode} from "./Interfaces/DataNode";
 import {NoNotifyObjectType_Observable} from "../general/observe/NoNotifyObjectType_Observable";
-import {LOGGER} from "../loadApp";
 export class EfTurDocument extends NoNotifyObjectType_Observable{
 
     public static singleton : EfTurDocument = new EfTurDocument();
@@ -20,10 +19,8 @@ export class EfTurDocument extends NoNotifyObjectType_Observable{
     }
 
     set rootNode(value: DataNode) {
-        LOGGER.startGroup("set rootNode");
         this._rootNode = value;
         this.notify();
-        LOGGER.endGroup("set rootNode");
     }
 
     resetDocument() {

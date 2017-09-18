@@ -1,5 +1,4 @@
 import {GenericObserver} from "../Interfaces/GenericObserver";
-import {LOGGER} from "../../loadApp";
 export class GenericObservable<NotifyObjectType> {
     register(observer: GenericObserver<NotifyObjectType>): void {
         this.observers.push(observer);

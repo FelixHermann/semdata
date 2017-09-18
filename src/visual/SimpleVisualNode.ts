@@ -12,14 +12,12 @@ import {EventManagerForSimpleVisualNode} from "./EventManagerForSimpleVisualNode
 import {NamedLink} from "../model/NamedLink";
 import {DataTypes} from "../model/DataTypes";
 import {NamedLinkVisualNode} from "./NamedLinkVisualNode";
-import {LOGGER} from "../loadApp";
 import {Notifier} from "../model/Notifier";
 import {GenericObActions} from "../general/observe/GenericObAction";
 
 export class SimpleVisualNode extends VisualHeadBody implements VisualNode {
 
     public constructor(dataNode: SimpleDataNode, backgroundColor: Colors) {
-        LOGGER.startGroup("constructor SimpleVisualNode");
         super();
         this.dataNode = dataNode;
         this.backgroundColor = backgroundColor;
@@ -35,7 +33,6 @@ export class SimpleVisualNode extends VisualHeadBody implements VisualNode {
 
         this.configureTextField();
 
-        LOGGER.endGroup("constructor SimpleVisualNode");
     }
 
     get standard_expanded(): boolean {

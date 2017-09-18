@@ -5,10 +5,6 @@ export class Configuration {
         return false;
     }
 
-    showLogger(): boolean {
-        return false;
-    }
-
     isWebsite(): boolean {
         return false;
     }

@@ -2,7 +2,6 @@ import {Colors, getColorValue} from "./ColorManagement";
 import {IHeadContainer, IUserEventAcceptor} from "./Interfaces/interfaces";
 import {BOX_SHADOW_NODE, EDGE_RADIUS, NODE_DISPLAY, STANDARD_MARGIN, STANDARD_PADDING} from "./general";
 import {Utils} from "./Utils";
-import {LOGGER} from "../loadApp";
 
 export class HeadContainer implements IHeadContainer {
 
@@ -36,14 +35,12 @@ export class HeadContainer implements IHeadContainer {
     }
 
     private createUIObject() {
-        LOGGER.startGroup("createUIObject, HeadContainer");
         // this.myDiv.style.display = NODE_DISPLAY;
 
         this.setStyle_NotExpanded();
 
         this.content_domObject = this.content.getUIObject();
         this.myDiv.appendChild(this.content_domObject);
-        LOGGER.endGroup("createUIObject, HeadContainer");
     }
 
     setContent(content: any) {

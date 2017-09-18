@@ -1,6 +1,5 @@
 import {IBodyContainer, IBodyContainer_Creator, IHeadContainer} from "./Interfaces/interfaces";
 import {Utils} from "./Utils";
-import {LOGGER} from "../loadApp";
 export class HeadBodyRepresentation {
 
     setHeadContainer(headContainer: IHeadContainer) {
@@ -19,7 +18,6 @@ export class HeadBodyRepresentation {
     }
 
     showBody() {
-        LOGGER.startGroup("showBody()");
         this.bodyContainer = this.bodyContainer_creator.create();
 
         this.bodyContainer.setCollapsed();
@@ -33,7 +31,6 @@ export class HeadBodyRepresentation {
         let timeLineBreak : number = 0; // before 50, before 100
         window.setTimeout(expand, timeLineBreak);
         this.bodyIsVisible = true;
-        LOGGER.endGroup("showBody()");
     }
 
     hideBody() {

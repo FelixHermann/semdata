@@ -2,13 +2,11 @@ import {Callbacks} from "./Callbacks";
 import {Colors, getColorValue} from "./ColorManagement";
 import {IUserEventAcceptor} from "./Interfaces/interfaces";
 import {FONT, FONT_SIZE} from "./general";
-import {LOGGER} from "../loadApp";
 import {Configuration} from "../Configuration";
 
 export class TextField {
 
     public constructor(text: string, eventAcceptor: IUserEventAcceptor) {
-        LOGGER.log("constructor TextField, text = " + text);
         this._mySpan = this.createUIObject(text, eventAcceptor);
     }
 

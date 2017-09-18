@@ -2,24 +2,12 @@ import {SimpleDataNode} from "./model/SimpleDataNode";
 import {Colors, getColorValue} from "./visual/ColorManagement";
 import {Utils} from "./visual/Utils";
 import {MAX_WIDTH_OF_NODE_VIEW} from "./visual/general";
-import {EfTurLoggingSystem} from "./logger/EfTurLogger/EfTurLoggingSystem";
-import {IGroupLogger} from "./logger/EfTurLogger/IGroupLogger";
 import {EfTurDocument} from "./model/EfTurDocument";
 import {DocumentController} from "./DocumentController";
 import {WindowManager} from "./WindowManager";
 import {RestFunctionality} from "./RestFunctionality";
 import {Configuration} from "./Configuration";
 import {SimpleVisualNode} from "./visual/SimpleVisualNode";
-
-function installLoggingSystem() {
-    let efTurLoggingSystem = new EfTurLoggingSystem();
-    LOGGER = efTurLoggingSystem.getGroupLogger();
-    let container = efTurLoggingSystem.getContainer();
-    if (Configuration.singleton.showLogger()) {
-        document.body.appendChild(container.getUIObject());
-        container.setMaxWidth(800); // after getUIObject!
-    }
-}
 
 export function loadAppFromJSON(jsonObject) {
 
@@ -31,8 +19,6 @@ export function loadAppFromJSON(jsonObject) {
 
     document.body.appendChild(appDiv);
     document.body.spellcheck = false;
-    installLoggingSystem();
-    LOGGER.startGroup("loadApp");
 
     documentController = new DocumentController();
 
@@ -64,7 +50,6 @@ export function loadAppFromJSON(jsonObject) {
     appendTmpField();
 
     documentController.setJSON(jsonObject);
-    LOGGER.endGroup("loadApp");
 }
 
 function adaptTitle() {
@@ -80,12 +65,10 @@ function adaptTitle() {
 }
 
 export function getWindowWidth() {
-    LOGGER.log("getWindowWidth");
     return window.innerWidth - 40;
 }
 
 function adaptToWindowSize() {
-    LOGGER.startGroup("adaptToWindowSize");
     let width = getWindowWidth();
     let elem = documentController.getRepresentation().getUIObject();
 
@@ -106,7 +89,6 @@ function adaptToWindowSize() {
 
     let height = window.innerHeight - 30;
     placeholder.style.height = height + "px";
-    LOGGER.endGroup("adaptToWindowSize");
 }
 
 
@@ -126,4 +108,3 @@ let backgroundColor = Colors.White;
 let placeholder = Utils.getDiv();
 let documentController: DocumentController;
 let appDiv = Utils.getDiv();
-export var LOGGER: IGroupLogger;

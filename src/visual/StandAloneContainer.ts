@@ -1,6 +1,5 @@
 import {I_EfTurContainer} from "./Interfaces/I_EfTurContainer";
 import {Utils} from "./Utils";
-import {LOGGER} from "../loadApp";
 export class StandAloneContainer implements I_EfTurContainer {
     setContent(content) {
         this.content = content;
@@ -18,7 +17,6 @@ export class StandAloneContainer implements I_EfTurContainer {
     }
 
     setWidth(maxWidth: number) {
-        LOGGER.log("setWidth, StandAloneContainer");
         this.width = maxWidth;
         if (this.content != null) {
             this.content.setMaxWidth(maxWidth);

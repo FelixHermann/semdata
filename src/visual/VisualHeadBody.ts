@@ -5,7 +5,6 @@ import {Colors} from "./ColorManagement";
 import {BodyContainer} from "./BodyContainer";
 import {HeadContainer} from "./HeadContainer";
 import {HeadBodyRepresentation} from "./HeadBodyRepresentation";
-import {LOGGER} from "../loadApp";
 
 export abstract class VisualHeadBody implements VisualNode {
 
@@ -26,7 +25,6 @@ export abstract class VisualHeadBody implements VisualNode {
     }
 
     private createUIObject() {
-        LOGGER.startGroup("createUIObject, VisualHeadBody");
 
         this.configureHead();
         this.headContainer = new HeadContainer();
@@ -49,7 +47,6 @@ export abstract class VisualHeadBody implements VisualNode {
             }
         });
         this.headBodyRepresentation.setHeadContainer(this.headContainer);
-        LOGGER.endGroup("createUIObject, VisualHeadBody");
     }
 
     public removeFromDOM() {
@@ -83,7 +80,6 @@ export abstract class VisualHeadBody implements VisualNode {
             toReturn =  this.headBodyRepresentation.get_bodyIsVisible();
         }
 
-        LOGGER.log("bodyIsVisible, VisualHeadBody, returns: " + toReturn);
         return toReturn;
     }
 
