@@ -1,5 +1,5 @@
 import {Utils} from "./visual/Utils";
-import {GenericObservable} from "./logger/general/observe/GenericObservable";
+import {GenericObservable} from "./general/observe/GenericObservable";
 import {GenericObActions} from "./general/observe/GenericObAction";
 export class RestFunctionality extends GenericObservable<GenericObActions>{
     static singleton = new RestFunctionality();
