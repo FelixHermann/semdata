@@ -1,7 +1,7 @@
 import {GenericObservable} from "./general/observe/GenericObservable";
 import {GenericObActions} from "./general/observe/GenericObAction";
-export class WindowManager extends GenericObservable<GenericObActions> {
-    static singleton = new WindowManager();
+export class Window extends GenericObservable<GenericObActions> {
+    static singleton = new Window();
 
     setTitle(title: string) {
         document.title = title;

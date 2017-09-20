@@ -4,7 +4,7 @@ import {Utils} from "./visual/Utils";
 import {MAX_WIDTH_OF_NODE_VIEW} from "./visual/general";
 import {EfTurDocument} from "./model/EfTurDocument";
 import {DocumentController} from "./DocumentController";
-import {WindowManager} from "./WindowManager";
+import {Window} from "./Window";
 import {RestFunctionality} from "./RestFunctionality";
 import {Configuration} from "./Configuration";
 import {SimpleVisualNode} from "./visual/SimpleVisualNode";
@@ -53,7 +53,7 @@ export function loadAppFromJSON(jsonObject) {
 }
 
 function adaptTitle() {
-    WindowManager.singleton.setTitle((<SimpleDataNode> EfTurDocument.singleton.rootNode).getName());
+    Window.singleton.setTitle((<SimpleDataNode> EfTurDocument.singleton.rootNode).getName());
 
     if (Configuration.singleton.isWebsite()) {
         let simpleDataNode: SimpleDataNode = <SimpleDataNode> EfTurDocument.singleton.rootNode;
